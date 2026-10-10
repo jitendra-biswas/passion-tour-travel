@@ -32,16 +32,22 @@ function TourSearch() {
         {submitted && (
           <div
             style={{
-              padding: '12px 20px',
-              background: '#ffffff',
-              color: '#0077ff',
-              borderRadius: '50px',
+              padding: '14px 24px',
+              background: '#F7F3EA',
+              color: '#172923',
+              border: '1px solid #E5DED2',
+              borderRadius: '8px',
               marginBottom: '20px',
               textAlign: 'center',
               fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
             }}
           >
-            Thank you! Your travel inquiry has been received.
+            <span style={{ color: '#D92727', fontSize: '18px' }}>✓</span>
+            Thank you! Your travel inquiry has been received. Our team will contact you shortly.
           </div>
         )}
 
@@ -55,7 +61,7 @@ function TourSearch() {
               name="destination"
               id="destination"
               required
-              placeholder="Enter Destination"
+              placeholder="e.g. Kathmandu, Greece, Dubai"
               className="input-field"
               value={formData.destination}
               onChange={(e) =>
@@ -74,7 +80,7 @@ function TourSearch() {
               id="people"
               required
               min="1"
-              placeholder="No.of People"
+              placeholder="No. of Travelers"
               className="input-field"
               value={formData.people}
               onChange={(e) =>
@@ -85,7 +91,7 @@ function TourSearch() {
 
           <div className="input-wrapper">
             <label htmlFor="checkin" className="input-label">
-              Checkin Date**
+              Check-in Date*
             </label>
             <input
               type="date"
@@ -102,7 +108,7 @@ function TourSearch() {
 
           <div className="input-wrapper">
             <label htmlFor="checkout" className="input-label">
-              Checkout Date*
+              Check-out Date*
             </label>
             <input
               type="date"
@@ -117,8 +123,8 @@ function TourSearch() {
             />
           </div>
 
-          <button type="submit" className="btn btn-secondary">
-            Inquire now
+          <button type="submit" className="btn btn-primary">
+            Find Journeys
           </button>
         </form>
       </div>

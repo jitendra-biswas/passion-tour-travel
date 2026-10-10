@@ -55,8 +55,8 @@ function PackageCard({ pkg, onBook }) {
           <span>/ per person</span>
         </p>
 
-        <button className="btn btn-secondary" onClick={() => onBook(pkg)}>
-          Book Now
+        <button className="btn btn-primary" onClick={() => onBook(pkg)}>
+          Book Tour
         </button>
       </div>
     </div>
@@ -76,33 +76,38 @@ function Package() {
       date: new Date().toISOString().split('T')[0],
       total: pkg.price,
     });
-    setBookedMsg(`Booking requested for "${pkg.title}"! Sent to Admin.`);
-    setTimeout(() => setBookedMsg(''), 4000);
+    setBookedMsg(`Booking requested for "${pkg.title}"! Our travel planner will contact you soon.`);
+    setTimeout(() => setBookedMsg(''), 4500);
   };
 
   return (
     <section className="package" id="package">
       <div className="container">
-        <p className="section-subtitle">Popular Packeges</p>
-        <h2 className="h2 section-title">Checkout Our Packeges</h2>
+        <p className="section-subtitle">Curated Itineraries</p>
+        <h2 className="h2 section-title">Signature Holiday Packages</h2>
         <p className="section-text">
-          Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo,
-          rutrum. Vestibulum cumque laudantium. Sit ornare mollitia tenetur,
-          aptent.
+          Comprehensive travel experiences complete with vetted accommodations,
+          seamless private transfers, and insightful cultural excursions.
         </p>
 
         {bookedMsg && (
           <div
             style={{
-              padding: '12px 20px',
-              background: '#dcfce7',
-              color: '#15803d',
+              padding: '14px 20px',
+              background: '#F7F3EA',
+              color: '#172923',
+              border: '1px solid #E5DED2',
               borderRadius: '8px',
-              marginBottom: '24px',
+              marginBottom: '28px',
               textAlign: 'center',
-              fontWeight: 500,
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
             }}
           >
+            <span style={{ color: '#D92727', fontSize: '18px' }}>✓</span>
             {bookedMsg}
           </div>
         )}
@@ -115,7 +120,9 @@ function Package() {
           ))}
         </ul>
 
-        <button className="btn btn-primary">View All Packages</button>
+        <a href="#contact" className="btn btn-primary">
+          Inquire About Custom Tours
+        </a>
       </div>
     </section>
   );

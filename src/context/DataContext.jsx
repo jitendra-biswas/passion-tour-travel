@@ -5,12 +5,18 @@ import package3 from '../assets/images/packege-3.jpg';
 
 const DataContext = createContext();
 
+// Version key — bump this string whenever you change initialPackages to clear stale localStorage
+const DATA_VERSION = 'v2';
+const PKG_KEY = `tourly_packages_${DATA_VERSION}`;
+const BKG_KEY = `tourly_bookings_${DATA_VERSION}`;
+const SUB_KEY = `tourly_subscribers_${DATA_VERSION}`;
+
 const initialPackages = [
   {
     id: 1,
     image: package1,
     title: 'Experience The Great Holiday On Beach',
-    text: 'Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores.',
+    text: 'Pristine white-sand coastlines, azure waters, and secluded beachfront villas crafted for an indulgent retreat in style.',
     duration: '7D/6N',
     pax: 'pax: 10',
     location: 'Malaysia',
@@ -21,10 +27,10 @@ const initialPackages = [
     id: 2,
     image: package2,
     title: 'Summer Holiday To The Oxolotan River',
-    text: 'Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores.',
+    text: 'Immerse in lush rainforest riverbanks, guided boat cruises, and encounters with rich native biodiversity.',
     duration: '7D/6N',
     pax: 'pax: 10',
-    location: 'Malaysia',
+    location: 'Mexico',
     reviews: '(20 reviews)',
     price: 520,
   },
@@ -32,7 +38,7 @@ const initialPackages = [
     id: 3,
     image: package3,
     title: "Santorini Island's Weekend Vacation",
-    text: 'Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores.',
+    text: 'Iconic whitewashed cliffside suites, Aegean sunset cruises, and private wine-tasting tours overlooking the caldera.',
     duration: '7D/6N',
     pax: 'pax: 10',
     location: 'Greece',
@@ -76,30 +82,30 @@ const initialBookings = [
 
 export function DataProvider({ children }) {
   const [packages, setPackages] = useState(() => {
-    const saved = localStorage.getItem('tourly_packages');
+    const saved = localStorage.getItem(PKG_KEY);
     return saved ? JSON.parse(saved) : initialPackages;
   });
 
   const [bookings, setBookings] = useState(() => {
-    const saved = localStorage.getItem('tourly_bookings');
+    const saved = localStorage.getItem(BKG_KEY);
     return saved ? JSON.parse(saved) : initialBookings;
   });
 
   const [subscribers, setSubscribers] = useState(() => {
-    const saved = localStorage.getItem('tourly_subscribers');
+    const saved = localStorage.getItem(SUB_KEY);
     return saved ? JSON.parse(saved) : ['alex@domain.com', 'traveler99@gmail.com'];
   });
 
   useEffect(() => {
-    localStorage.setItem('tourly_packages', JSON.stringify(packages));
+    localStorage.setItem(PKG_KEY, JSON.stringify(packages));
   }, [packages]);
 
   useEffect(() => {
-    localStorage.setItem('tourly_bookings', JSON.stringify(bookings));
+    localStorage.setItem(BKG_KEY, JSON.stringify(bookings));
   }, [bookings]);
 
   useEffect(() => {
-    localStorage.setItem('tourly_subscribers', JSON.stringify(subscribers));
+    localStorage.setItem(SUB_KEY, JSON.stringify(subscribers));
   }, [subscribers]);
 
   const addPackage = (pkg) => {

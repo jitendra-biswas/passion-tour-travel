@@ -3,18 +3,19 @@ function Cta() {
     <section className="cta" id="contact">
       <div className="container">
         <div className="cta-content">
-          <p className="section-subtitle">Call To Action</p>
+          <p className="section-subtitle">Your Next Chapter Awaits</p>
           <h2 className="h2 section-title">
-            Ready For Unforgatable Travel. Remember Us!
+            Ready for an Unforgettable Journey? Let&apos;s Plan Together.
           </h2>
           <p className="section-text">
-            Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec
-            nemo, rutrum. Vestibulum cumque laudantium. Sit ornare mollitia
-            tenetur, aptent.
+            Speak directly with our destination specialists to customize private itineraries,
+            trekking adventures, and seamless holiday packages.
           </p>
         </div>
 
-        <button className="btn btn-secondary">Contact Us !</button>
+        <a href="tel:+01123456790" className="btn btn-primary">
+          Speak With An Expert
+        </a>
       </div>
     </section>
   );

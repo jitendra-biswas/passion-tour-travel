@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import logo from '../assets/images/logo.svg';
 import { useData } from '../context/DataContext';
 
 function Footer() {
@@ -22,21 +21,33 @@ function Footer() {
         <div className="container">
           <div className="footer-brand">
             <a href="#" className="logo">
-              <img src={logo} alt="Tourly logo" />
+              <img
+                src="/logo_passion_tourtravel.png"
+                alt="Passion Tour & Holiday Service logo"
+                style={{
+                  maxHeight: '58px',
+                  maxWidth: '170px',
+                  height: 'auto',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'inline-block',
+                }}
+              />
             </a>
 
             <p className="footer-text">
-              Urna ratione ante harum provident, eleifend, vulputate molestiae
-              proin fringilla, praesentium magna conubia at perferendis,
-              pretium, aenean aut ultrices.
+              Dedicated to crafting remarkable adventures, private holiday
+              escapes, and authentic cultural journeys with personalized care
+              and trusted destination expertise.
             </p>
           </div>
 
-          <div className="footer-contact">
+          <div className="footer-contact" id="contact-footer">
             <h4 className="contact-title">Contact Us</h4>
 
             <p className="contact-text">
-              Feel free to contact and reach us !!
+              Connect with our dedicated travel planners for inquiries, private
+              customizations, and bookings.
             </p>
 
             <ul>
@@ -49,26 +60,28 @@ function Footer() {
 
               <li className="contact-item">
                 <ion-icon name="mail-outline"></ion-icon>
-                <a href="mailto:info.tourly.com" className="contact-link">
-                  info.tourly.com
+                <a href="mailto:info@passiontourtravel.com" className="contact-link">
+                  info@passiontourtravel.com
                 </a>
               </li>
 
               <li className="contact-item">
                 <ion-icon name="location-outline"></ion-icon>
-                <address>3146 Koontz, California</address>
+                <address>Kathmandu, Nepal &amp; Global Destinations</address>
               </li>
             </ul>
           </div>
 
           <div className="footer-form">
+            <h4 className="contact-title">Travel Journal</h4>
             <p className="form-text">
-              Subscribe our newsletter for more update &amp; news !!
+              Subscribe to our journal for curated destination guides, seasonal
+              itineraries, and special offers.
             </p>
 
             {subscribed && (
-              <p style={{ color: '#4ade80', fontSize: '14px', marginBottom: '10px' }}>
-                ✓ Subscribed! You will receive our latest news.
+              <p style={{ color: '#F5A900', fontSize: '14px', marginBottom: '10px', fontWeight: 600 }}>
+                ✓ Subscribed! Thank you for joining our travel community.
               </p>
             )}
 
@@ -82,7 +95,7 @@ function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <button type="submit" className="btn btn-secondary">
+              <button type="submit" className="btn btn-primary">
                 Subscribe
               </button>
             </form>
@@ -93,7 +106,7 @@ function Footer() {
       <div className="footer-bottom">
         <div className="container">
           <p className="copyright">
-            &copy; 2022 <a href="#">codewithsadee</a>. All rights reserved
+            &copy; {new Date().getFullYear()} Passion Tour &amp; Holiday Service. All rights reserved.
           </p>
 
           <ul className="footer-bottom-list">
@@ -104,7 +117,7 @@ function Footer() {
             </li>
             <li>
               <a href="#" className="footer-bottom-link">
-                Term &amp; Condition
+                Terms &amp; Conditions
               </a>
             </li>
             <li>

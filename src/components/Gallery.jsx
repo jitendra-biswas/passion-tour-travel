@@ -16,12 +16,11 @@ function Gallery() {
   return (
     <section className="gallery" id="gallery">
       <div className="container">
-        <p className="section-subtitle">Photo Gallery</p>
-        <h2 className="h2 section-title">Photo's From Travellers</h2>
+        <p className="section-subtitle">Visual Memories</p>
+        <h2 className="h2 section-title">Moments From Our Expeditions</h2>
         <p className="section-text">
-          Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo,
-          rutrum. Vestibulum cumque laudantium. Sit ornare mollitia tenetur,
-          aptent.
+          A glimpse into genuine travel stories, breathtaking vistas, and
+          treasured memories captured by travelers exploring with Passion Tour.
         </p>
 
         <ul className="gallery-list">

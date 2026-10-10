@@ -9,24 +9,14 @@ import Gallery from './components/Gallery';
 import Cta from './components/Cta';
 import Footer from './components/Footer';
 import GoToTop from './components/GoToTop';
-import AdminDashboard from './admin/AdminDashboard';
-import AdminLogin from './admin/AdminLogin';
+
+import WhyChooseUs from './components/WhyChooseUs';
 
 function AppContent() {
-  const [isAdmin, setIsAdmin] = useState(
-    () => window.location.hash === '#admin'
-  );
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    () => sessionStorage.getItem('tourly_admin_auth') === 'true'
-  );
   const [headerActive, setHeaderActive] = useState(false);
   const [goTopActive, setGoTopActive] = useState(false);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setIsAdmin(window.location.hash === '#admin');
-    };
-
     const handleScroll = () => {
       if (window.scrollY >= 200) {
         setHeaderActive(true);
@@ -37,53 +27,22 @@ function AppContent() {
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
     window.addEventListener('scroll', handleScroll);
-
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const openAdmin = () => {
-    window.location.hash = '#admin';
-    setIsAdmin(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const exitAdmin = () => {
-    window.location.hash = '';
-    setIsAdmin(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleLoginSuccess = () => {
-    sessionStorage.setItem('tourly_admin_auth', 'true');
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    sessionStorage.removeItem('tourly_admin_auth');
-    setIsAuthenticated(false);
-  };
-
-  if (isAdmin) {
-    if (!isAuthenticated) {
-      return <AdminLogin onLogin={handleLoginSuccess} onBack={exitAdmin} />;
-    }
-    return <AdminDashboard onExit={exitAdmin} onLogout={handleLogout} />;
-  }
-
   return (
     <>
-      <Header isActive={headerActive} onOpenAdmin={openAdmin} />
+      <Header isActive={headerActive} />
 
       <main>
         <article>
           <Hero />
           <TourSearch />
           <Popular />
+          <WhyChooseUs />
           <Package />
           <Gallery />
           <Cta />
@@ -105,3 +64,4 @@ function App() {
 }
 
 export default App;
+

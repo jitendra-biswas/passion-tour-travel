@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import logo from '../assets/images/logo.svg';
-import logoBlue from '../assets/images/logo-blue.svg';
 
 const navLinks = [
   { label: 'home', href: '#home' },
@@ -11,7 +9,7 @@ const navLinks = [
   { label: 'contact us', href: '#contact' },
 ];
 
-function Header({ isActive, onOpenAdmin }) {
+function Header({ isActive }) {
   const [navOpen, setNavOpen] = useState(false);
 
   const toggleNav = () => setNavOpen((prev) => !prev);
@@ -33,32 +31,26 @@ function Header({ isActive, onOpenAdmin }) {
               <ion-icon name="call-outline"></ion-icon>
             </div>
             <div className="wrapper">
-              <p className="helpline-title">For Further Inquires :</p>
+              <p className="helpline-title">For Further Inquiries :</p>
               <p className="helpline-number">+01 (123) 4567 90</p>
             </div>
           </a>
 
           <a href="#" className="logo">
-            <img src={logo} alt="Tourly logo" />
+            <img
+              src="/logo_passion_tourtravel.png"
+              alt="Passion Tour & Holiday Service logo"
+              style={{
+                maxHeight: '54px',
+                maxWidth: '160px',
+                height: 'auto',
+                width: 'auto',
+                objectFit: 'contain',
+              }}
+            />
           </a>
 
           <div className="header-btn-group">
-            <button
-              onClick={onOpenAdmin}
-              className="btn btn-secondary"
-              style={{
-                fontSize: '11px',
-                padding: '4px 12px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-              title="Open Admin Dashboard"
-            >
-              <ion-icon name="speedometer-outline"></ion-icon>
-              Admin
-            </button>
-
             <button className="search-btn" aria-label="Search">
               <ion-icon name="search"></ion-icon>
             </button>
@@ -97,7 +89,17 @@ function Header({ isActive, onOpenAdmin }) {
           <nav className={`navbar${navOpen ? ' active' : ''}`}>
             <div className="navbar-top">
               <a href="#" className="logo">
-                <img src={logoBlue} alt="Tourly logo" />
+                <img
+                  src="/logo_passion_tourtravel.png"
+                  alt="Passion Tour & Holiday Service logo"
+                  style={{
+                    maxHeight: '48px',
+                    maxWidth: '150px',
+                    height: 'auto',
+                    width: 'auto',
+                    objectFit: 'contain',
+                  }}
+                />
               </a>
               <button
                 className="nav-close-btn"
@@ -120,43 +122,10 @@ function Header({ isActive, onOpenAdmin }) {
                   </a>
                 </li>
               ))}
-              <li>
-                <button
-                  className="navbar-link"
-                  style={{
-                    color: '#0077ff',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    background: 'none',
-                    border: 'none',
-                    textAlign: 'left',
-                    width: '100%',
-                  }}
-                  onClick={() => {
-                    closeNav();
-                    onOpenAdmin();
-                  }}
-                >
-                  ⚡ Admin Dashboard
-                </button>
-              </li>
             </ul>
           </nav>
 
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <button
-              className="btn btn-secondary"
-              onClick={onOpenAdmin}
-              style={{
-                fontSize: '12px',
-                padding: '6px 14px',
-                borderColor: 'rgba(255,255,255,0.4)',
-              }}
-            >
-              Admin Portal
-            </button>
-            <button className="btn btn-primary">Book Now</button>
-          </div>
+          <button className="btn btn-primary">Book Now</button>
         </div>
       </div>
     </header>
