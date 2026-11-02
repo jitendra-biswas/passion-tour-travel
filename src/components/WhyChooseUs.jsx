@@ -23,23 +23,36 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section className="why-us" id="about">
-      <div className="container">
-        <p className="section-subtitle">The Passion Difference</p>
-        <h2 className="h2 section-title">Why Travelers Choose Us</h2>
-        <p className="section-text">
-          Every journey with Passion Tour &amp; Holiday Service is crafted with
-          meticulous preparation, trusted local relationships, and dedicated care.
-        </p>
+    <section className="py-20 bg-brand-ivory-dark/60 border-y border-brand-border/60" id="about">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <p className="font-heading font-bold text-xs uppercase tracking-widest text-brand-red mb-2">
+            The Passion Difference
+          </p>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-brand-forest mb-4">
+            Why Travelers Choose Us
+          </h2>
+          <p className="font-body text-brand-gray text-base leading-relaxed">
+            Every journey with Passion Tour &amp; Holiday Service is crafted with
+            meticulous preparation, trusted local relationships, and dedicated care.
+          </p>
+        </div>
 
-        <div className="why-us-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((item, index) => (
-            <div className="why-us-card" key={index}>
-              <div className="why-us-icon">
+            <div
+              key={index}
+              className="bg-white rounded-xl p-7 border border-brand-border/60 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-start group"
+            >
+              <div className="w-14 h-14 rounded-lg bg-brand-ivory text-brand-red group-hover:bg-brand-red group-hover:text-white flex items-center justify-center text-3xl mb-5 transition-colors duration-200">
                 <ion-icon name={item.icon}></ion-icon>
               </div>
-              <h3 className="why-us-card-title">{item.title}</h3>
-              <p className="why-us-card-text">{item.text}</p>
+              <h3 className="font-heading font-bold text-lg text-brand-forest mb-2">
+                {item.title}
+              </h3>
+              <p className="font-body text-sm text-brand-gray leading-relaxed">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>
